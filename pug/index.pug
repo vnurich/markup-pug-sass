@@ -1,0 +1,14 @@
+include component/header.pug
+
+doctype html
+html
+  +header({
+    title: title
+  })
+  body
+    h1 dev-env-pug-sass
+    +b.container
+      +e.inner
+        .element
+
+    script(src="js/main.js")
