@@ -1,6 +1,6 @@
 :hammer: A simple pug-sass boilerplate for rapid markup.
 
-1. `git clone https://github.com/vnurich/dev-env-pug-sass.git`;
+1. `git clone https://github.com/vnurich/markup-pug-sass.git`;
 2. `npm install`;
 3. Launch the browser sync local server with `npm run dev`;
 4. Build with `npm run build`.
