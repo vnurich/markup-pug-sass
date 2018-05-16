@@ -3,9 +3,7 @@ const pug = require('gulp-pug');
 const sass = require('gulp-sass');
 const bsync = require('browser-sync');
 const prefixer = require('gulp-autoprefixer');
-
-const babel = require('gulp-babel');
-const concat = require('gulp-concat');
+const rollup = require('gulp-rollup');
 
 const path = require('path');
 const data = require('gulp-data');
@@ -69,12 +67,15 @@ gulp.task('sass', () =>
 //////////////////////////////////////////////
 
 gulp.task('js', () =>
-  gulp.src(`${folder.js}*.+(js|jsx)`)
+	gulp.src(`${folder.js}*.+(js|jsx)`)
   .pipe(maps.init())
-  .pipe(babel({
-    presets: ['env']
+  .pipe(rollup({
+    input: `${folder.js}main.js`,
+    output: {
+      file: 'main.js',
+      format: 'umd'
+    }
   }))
-  .pipe(concat('main.js'))
   .pipe(maps.write())
   .pipe(gulp.dest(folder.devJs))
 );
